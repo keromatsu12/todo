@@ -6,7 +6,6 @@
 <script>
 import TodoHeader from '@/components/organisms/TodoHeader.vue';
 import TodoTemplate from '@/components/templates/TodoTemplate.vue';
-import { Todo } from '@types/TodoType';
 
 
 export default {
@@ -29,7 +28,7 @@ export default {
     addTodo() {
       if (this.newTodoItem.trim() === '') return;
 
-      const newTodo: Todo = {
+      const newTodo= {
         id: this.nextId,
         item: this.newTodoItem,
         isDone: false
@@ -39,7 +38,7 @@ export default {
       this.newTodoItem = '';
       this.nextId++;
     },
-    deleteTodo(id: number) {
+    deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
     }
   }
