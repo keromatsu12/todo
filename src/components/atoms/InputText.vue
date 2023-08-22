@@ -23,7 +23,7 @@ export default {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 30%;
   box-sizing: border-box;
+  transition: padding 0.3s, font-size 0.3s;  /* 追加: スムーズな遷移 */
 }
 </style>

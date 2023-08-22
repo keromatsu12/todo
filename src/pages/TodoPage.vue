@@ -1,12 +1,9 @@
 <template>
-  <todo-header />
   <todo-template :todos="todos" @add="addItem" @delete="deleteItem" />
 </template>
 
 <script>
-import TodoHeader from '@/components/organisms/TodoHeader.vue';
 import TodoTemplate from '@/components/templates/TodoTemplate.vue';
-
 
 export default {
    data() {
@@ -22,21 +19,20 @@ export default {
   },
   components: {
     TodoTemplate,
-    TodoHeader,
   },
     methods: {
-    addTodo() {
-      if (this.newTodoItem.trim() === '') return;
+    addItem(item) {
+      console.log(item);
+      if (this.item === '' || undefined) return;
 
+      console.log("TodoPage.vue");
       const newTodo= {
-        id: this.nextId,
-        item: this.newTodoItem,
-        isDone: false
+        text: item,
+        done: false
       };
 
       this.todos.push(newTodo);
-      this.newTodoItem = '';
-      this.nextId++;
+      // this.newTodoItem = '';
     },
     deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
