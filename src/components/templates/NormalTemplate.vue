@@ -36,11 +36,12 @@ export default {
   flex-direction: column;
   justify-content: center; /* 横方向の中央寄せ */
   width: 100%;
+  margin: 16px;
   max-width: min(100%, 1200px);
   min-height: 100vh; /* 画面の高さを100%にします。これにより縦の中央寄せが効くようになります */
 
   /* クールなデザインを追加する場合、以下のようなプロパティを追加してください */
-  background: rgb(84, 101, 180); /* 背景色 */
+  background: rgb(8, 8, 8); /* 背景色 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影 */
   border-radius: 8px; /* 角の丸み */
   padding: 20px; /* 内部のスペース */

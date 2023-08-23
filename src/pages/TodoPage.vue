@@ -9,9 +9,11 @@ export default {
    data() {
     return {
       todos : [{
+        id: 1,
         text: "サンプルタスク",
         done: false
       },{
+        id: 2,
         text: "サンプルタスク2",
         done: false
       }]

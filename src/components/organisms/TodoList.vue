@@ -2,7 +2,7 @@
   <table class="todo-table">
     <thead>
       <tr>
-        <th>Task</th>
+        <th>TaskList</th>
       </tr>
     </thead>
     <tbody>

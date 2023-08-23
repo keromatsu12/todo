@@ -2,7 +2,7 @@
  <footer>
   <div class="footer-container">
     <div class="footer-section">
-      <h4>About Us</h4>
+      <h4>About </h4>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
     <div class="footer-section">
@@ -14,7 +14,7 @@
       </ul>
     </div>
     <div class="footer-section">
-      <h4>Follow Us</h4>
+      <h4>Follow Me</h4>
       <div class="social-icons">
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -45,6 +45,7 @@ footer {
 
 .footer-container {
   display: flex;
+  flex-wrap: wrap;  /* 追加: フレックスアイテムを折り返します。 */
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
@@ -54,8 +55,8 @@ footer {
 .footer-section {
   flex: 1;
   padding: 0 20px;
+  margin-bottom: 20px;  /* 追加: レスポンシブデザインのためのマージン */
 }
-
 .footer-section h4 {
   border-bottom: 2px solid #555;
   padding-bottom: 10px;
@@ -96,5 +97,6 @@ footer {
   text-align: center;
   margin-top: 20px;
 }
+
 </style>
 

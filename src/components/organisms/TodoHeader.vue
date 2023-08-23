@@ -12,7 +12,7 @@ export default {
 
 <style scoped>
 .todo-header {
-  background-color: #2c3e50;
+  background-color: #333;
   color: #ffffff;
   text-align: center;
   padding: 20px 0;
