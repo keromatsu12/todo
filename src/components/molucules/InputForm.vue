@@ -1,9 +1,8 @@
 <template>
   <div :class="$style.inputForm">
     <form @submit.prevent>
-      <todo-label text="InputTask"></todo-label>
-      <input-text />
-      <primary-button label="追加" :iconSrc="imgSrc" @click="addTodo" />
+      <input-text v-model="value" :searchText="value"></input-text>
+      <primary-button label="追加" :iconSrc="imgSrc" @click="addTodo" :disabled="!value"/>
     </form>
   </div>
 </template>
@@ -11,17 +10,17 @@
 <script>
 import InputText from '../atoms/InputText.vue';
 import PrimaryButton from '../atoms/PrimaryButton.vue';
-import TodoLabel from '../atoms/TodoLabel.vue';
 
 export default {
   components: {
     PrimaryButton,
-    InputText,
-    TodoLabel
+    InputText
   },
   data() {
-    const imgSrc = "../../assets/garbage_can_image.png";
-    return imgSrc
+    return{
+      imgSrc: "",
+      value :'',
+    }
   },
   props: {
     todo: {
@@ -31,8 +30,8 @@ export default {
   },
   methods: {
     addTodo() {
-      console.log("InputForm clicked");
-      this.$emit('add', this.todo);
+      this.$emit('add', this.value);
+      this.value = '';
     }
   }
 }

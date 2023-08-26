@@ -1,20 +1,20 @@
 <template>
-  <input :class="$style.input" placeholder="タスクを入力してください" :value="value" @input="onInput" />
+  <input :class="$style.input" 
+          placeholder="タスクを入力" 
+          v-model="innerSearchText"/>
 </template>
 
 <script>
 export default {
   props: {
-    value: {
-      type: String,
-      default: ''
-    }
+    searchText: String
   },
-  methods: {
-    onInput(event) {
-      this.$emit('input', event.target.value);
-    }
-  }
+  computed: {
+    innerSearchText: {
+      get () {
+        return this.$props.searchText
+      }
+    }}
 }
 </script>
 

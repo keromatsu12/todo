@@ -1,8 +1,8 @@
 <template>
   <div :class="$style.todoItem">
-    <check-box :checked="todo.done" @change="toggleDone" />
+    <check-box :checked="todo.done" @checkbox-value-Changed="checkboxValueChanged" />
     <todo-label :text="todo.text"></todo-label>
-    <primary-button label="削除" @click="removeTodo" />
+    <primary-button label="削除" @clicked="removeTodo" :disabled="!todo.done"/>
   </div>
 </template>
 
@@ -24,8 +24,8 @@ export default {
     }
   },
   methods: {
-    toggleDone() {
-      this.$emit('toggle-done', this.todo);
+    checkboxValueChanged(newDoneValue) {
+      this.$emit('update-todo', { ...this.todo, done: newDoneValue });
     },
     removeTodo() {
       this.$emit('remove', this.todo);

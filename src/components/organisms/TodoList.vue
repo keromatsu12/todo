@@ -5,9 +5,14 @@
         <th>TaskList</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody v-if="areTodosCompleted"> 
+      <tr>
+        <td class="empty-message">すべてのタスクが完了しました</td>
+      </tr>
+    </tbody>
+    <tbody v-else>
       <tr v-for="todo in todos" :key="todo.id">
-        <td><todo-item :todo="todo" @toggle-done="toggleDone" @remove="removeTodo" /></td>
+        <td><todo-item :todo="todo" @update-todo="updateTodo" @remove="removeTodo" /></td>
       </tr>
     </tbody>
   </table>
@@ -27,12 +32,19 @@ export default {
       required: true
     }
   },
+  computed: {
+    areTodosCompleted: {
+      get () {
+        return this.todos.length === 0
+      }
+    }
+  },
   methods: {
-    toggleDone(todo) {
-      this.$emit('toggle-done', todo);
+    updateTodo(todo) {
+      this.$emit('update-todo', todo);
     },
     removeTodo(todo) {
-      this.$emit('remove', todo);
+      this.$emit('remove', todo.id);
     }
   }
 }
@@ -72,5 +84,14 @@ export default {
 .todo-table button:hover {
   background-color: #ef5350;
 }
+
+.empty-message {
+  text-align: center;     /* テキストをセンタリング */
+  color: #888;            /* グレイッシュな色を指定 */
+  font-weight: bold;      /* テキストを太字にする */
+  font-style: italic;     /* テキストを斜体にする */
+  font-size: 1.1em;       /* フォントサイズを大きくする */
+}
+
 </style>
 

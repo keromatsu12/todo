@@ -1,5 +1,5 @@
 <template>
-  <todo-page :todos="todos" />
+  <todo-page />
 </template>
 
 <script>
@@ -7,17 +7,6 @@ import TodoPage from '@/pages/TodoPage.vue';
 
 export default {
   name: 'App',
-  data() {
-    return {
-      todos : [{
-        text: "サンプルタスク",
-        done: false
-      },{
-        text: "サンプルタスク2",
-        done: false
-      }]
-    }
-  },
   components: {
     TodoPage
   }

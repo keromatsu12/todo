@@ -1,5 +1,5 @@
 <template>
-  <todo-template :todos="todos" @add="addItem" @delete="deleteItem" />
+  <todo-template :todos="todos" @add="addItem" @delete="deleteItem" @update="updateItem"/>
 </template>
 
 <script>
@@ -12,10 +12,6 @@ export default {
         id: 1,
         text: "サンプルタスク",
         done: false
-      },{
-        id: 2,
-        text: "サンプルタスク2",
-        done: false
       }]
     }
   },
@@ -24,22 +20,29 @@ export default {
   },
     methods: {
     addItem(item) {
-      console.log(item);
-      if (this.item === '' || undefined) return;
+      if (item === '' ) {
+        alert('入力欄は必須入力です。');
+        return;
+      }
 
-      console.log("TodoPage.vue");
-      const newTodo= {
+      const maxId = this.todos.length > 0 ? 
+        Math.max(...this.todos.map(t => t.id)) : 0;
+
+      const newTodo = {
+        id: maxId + 1, 
         text: item,
         done: false
       };
 
       this.todos.push(newTodo);
-      // this.newTodoItem = '';
     },
-    deleteTodo(id) {
+    deleteItem(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
+    },
+    updateItem(updatedTodo){
+      const index = this.todos.findIndex(t => t.id === updatedTodo.id);
+      this.todos.splice(index, 1, updatedTodo);
     }
   }
-
 }
 </script>

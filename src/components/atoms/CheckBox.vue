@@ -1,6 +1,9 @@
 <template>
   <div :class="$style.checkboxContainer">
-    <input type="checkbox" :class="$style.checkbox" :checked="checked" @change="onChange" />
+    <input type="checkbox" 
+          :class="$style.checkbox" 
+          :checked="checked" 
+          @change="onChange" />
     <span :class="$style.customCheckbox"></span>
   </div>
 </template>
@@ -15,7 +18,8 @@ export default {
   },
   methods: {
     onChange(event) {
-      this.$emit('change', event.target.checked);
+      console.log(event.target.checked);
+      this.$emit('checkbox-value-Changed', event.target.checked);
     }
   }
 }

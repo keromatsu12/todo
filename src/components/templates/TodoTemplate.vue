@@ -1,7 +1,7 @@
 <template>
   <normal-template>
       <input-form @add="onAdd" />
-      <todo-list :todos="todos" @delete="onDelete" />
+      <todo-list :todos="todos" @remove="onDelete" @update-todo="onUpdate"/>
   </normal-template>
 </template>
 
@@ -24,11 +24,13 @@ export default {
   },
   methods: {
     onAdd(item) {
-      console.log("TodoTemplate.vue");
       this.$emit('add', item)
     },
-    onDelete(index) {
-      this.$emit('delete', index)
+    onDelete(id) {
+      this.$emit('delete', id)
+    },
+    onUpdate(todo) {
+      this.$emit('update', todo)
     }
   }
 }
